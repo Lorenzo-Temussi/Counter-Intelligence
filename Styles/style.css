@@ -1,0 +1,112 @@
+/* PALETTE */
+
+:root {
+  --colorA: #566d26;
+  --colorB: #2b2b16;
+  --colorC: #61b600;
+  --colorD: #9b0c0c;
+  --colorE: #e0baba;
+
+  --gradientA: #e4e49b;
+  --gradientB: #a8a26b;
+}
+
+/* FONTS */
+
+.bungee-hairline-regular {
+  font-family: "Bungee Hairline", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+#title-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4em;
+}
+
+hr {
+  width: 80%;
+}
+
+h1 {
+    color: red;
+    font-size: 4em;
+    margin: auto;
+    text-shadow: 2px 0px var(--colorB);
+}
+
+body {
+    background-color: var(--colorA);
+}
+
+.add-elem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+.add-button {
+
+  /* ToDo: replace elem with img */
+
+  border-radius: 50%;
+  background-color: var(--colorC);
+  border-style:groove;
+  border-width: 3px;
+  width: 4em;
+  height: 4em;  
+}
+
+.delete-button {
+  border-radius: 20%;
+  border: none;
+  background-color: var(--colorD);
+  color: var(--colorE);
+  width: 2em;
+  height: 2em;
+}
+
+.container {
+  width: 20%;
+  border: 3px solid var(--colorB);
+  display: flex;
+  flex-direction: column;
+}
+
+.window-name{
+  color: var(--colorC);
+  background-color: #2b2b16;
+}
+
+.window-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.window-element {
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: linear-gradient(to bottom, var(--gradientA), var(--gradientB));
+  border-bottom: 1px solid var(--colorA);
+}
+
+.elem-icon {
+  width: 15%;
+  height: auto;
+}
+
+.elem-link {
+  width: 65%;
+  display: inline;
+}
+
+.form-to-add {
+  background-color: #61b600;
+}
