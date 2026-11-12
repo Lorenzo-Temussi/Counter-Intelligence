@@ -1,4 +1,5 @@
 const addElement = (() => {
+    console.log("called");
     let dialog;
     let form;
     let destination;
@@ -107,9 +108,10 @@ const addElement = (() => {
 })();
 
 function addWindow() {
+    
     const newWindowInner = `
         <div class="container">
-            <div class="window-name">Games</div>
+            <div class="window-name">New Window</div>
             <div class="window-content">
                 <div class="window-elements">
                 </div>

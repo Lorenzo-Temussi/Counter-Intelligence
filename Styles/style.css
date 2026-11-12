@@ -51,23 +51,30 @@ body {
 
 #main {
   display: flex;
+  justify-content: center;
 }
 
 /* SIDEBAR */
 
 #sidebar {
   width: 25%;
+  background-color: var(--colorB);
+}
+
+.hidden {
   display: none;
 }
+
+
 
 /* CONTENT */
 
 #content {
-
-  width: 100%;
+  width: 75%;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
+  margin: auto;
 }
 
 
