@@ -1,51 +1,110 @@
+const addElement = (() => {
+    let dialog;
+    let form;
+    let destination;
 
-function addElement() {
-    /*const dialog = document.createElement("dialog");
+    function initializeAddLinkDialog() {
+        dialog = document.getElementById("add-link-dialog");
+        form = document.getElementById("add-link-form");
+        const cancelButton = document.getElementById("cancel-add-link");
 
-    dialog.classList.add("form-to-add");
-    dialog.id = "dialog-form";
-    const clone = document.getElementById("template-dialog").content.cloneNode(true);
+        form.addEventListener("submit", handleFormSubmit);
+        cancelButton.addEventListener("click", () => dialog.close());
+    }
 
+    function parseHttpUrl(value, input) {
+        let url;
+        try {
+            url = new URL(value);
+        } catch {
+            url = null;
+        }
 
-    const exitButt = document.createElement("button");
-    exitButt.textContent = "Close";
-    exitButt.setAttribute("commandfor", "dialog-form");
-    exitButt.setAttribute("command", "close");
-    
-    const confirmButt = document.createElement("button");
-    confirmButt.textContent = "Confirm";
+        if (!url || (url.protocol !== "http:" && url.protocol !== "https:")) {
+            input.setCustomValidity("Enter a valid http or https URL.");
+            input.reportValidity();
+            input.setCustomValidity("");
+            return null;
+        }
 
-    document.body.append(dialog);
-    dialog.showModal();
+        input.setCustomValidity("");
+        return url;
+    }
 
-    dialog.append(exitButt, confirmButt);
-    dialog.append(clone);*/
+    function handleFormSubmit(event) {
+        event.preventDefault();
 
-    /* 1: crea finestra per inserire dati */
+        const urlInput = form.querySelector('input[name="url"]');
+        const imageInput = form.querySelector('input[name="image"]');
+        const data = new FormData(form);
+        const url = parseHttpUrl(String(data.get("url") ?? "").trim(), urlInput);
 
-    /* 2: parsa il link */
+        if (!url) {
+            return;
+        }
 
-    /* 3: crea elemento con i dati inseriti nella finestra giusta */
-    const newImg = "Pictures/birb.jpeg";
-    const newLink = "https://google.com";
-    const newName = "Angreyd Byrdes";
+        const name = String(data.get("name") ?? "").trim() || url.hostname;
+        const imageValue = String(data.get("image") ?? "").trim();
+        const imageUrl = imageValue
+            ? parseHttpUrl(imageValue, imageInput)
+            : null;
 
-    const newElemInner = `<div class="window-element">
-                <img class="elem-icon" src=${newImg}>
-                <a class="elem-link" href=${newLink} target=_blank>${newName}</a>
-                <button class="delete-button">x</button>
-            </div>
-            `
-    
-    const newElem = document.createElement("div");
-    newElem.innerHTML = newElemInner;
-    
-    console.log(this);
-    let temp = this.parentElement.parentElement.getElementsByClassName("window-elements")[0].appendChild(newElem);
-    temp.getElementsByClassName("delete-button")[0].addEventListener("click", deleteElement);
+        if (imageValue && !imageUrl) {
+            return;
+        }
+        if (!destination) {
+            throw new Error("No destination window is selected.");
+        }
 
+        const row = document.createElement("div");
+        row.className = "window-element";
 
-}
+        const image = document.createElement("img");
+        image.className = "elem-icon";
+        if (imageUrl) {
+            image.src = imageUrl.href;
+        } else {
+            const faviconUrl = new URL("https://www.google.com/s2/favicons");
+            faviconUrl.searchParams.set("domain_url", url.origin);
+            faviconUrl.searchParams.set("sz", "64");
+            image.src = faviconUrl.href;
+        }
+        image.alt = "";
+
+        const link = document.createElement("a");
+        link.className = "elem-link";
+        link.href = url.href;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = name;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete-button";
+        deleteButton.type = "button";
+        deleteButton.textContent = "x";
+        deleteButton.addEventListener("click", deleteElement);
+
+        row.append(image, link, deleteButton);
+        destination.append(row);
+        destination = null;
+        dialog.close();
+    }
+
+    window.addEventListener("load", initializeAddLinkDialog, { once: true });
+
+    return function addElement() {
+        destination = this
+            .closest(".window-content")
+            ?.querySelector(".window-elements");
+
+        if (!destination) {
+            throw new Error("The add button is not inside a window.");
+        }
+
+        form.reset();
+        dialog.showModal();
+    };
+})();
 
 function addWindow() {
     const newWindowInner = `
@@ -58,11 +117,11 @@ function addWindow() {
                     <button class="add-button">+</button>
                 </div>
             </div>
-        </div>`
+        </div>`;
 
     const newWindow = document.createElement("div");
     newWindow.innerHTML = newWindowInner;
-    const temp = document.getElementById("content").insertBefore(newWindow, this.parentElement);
-    newWindow.getElementsByClassName("add-button")[0].addEventListener("click", addElement);
-
+    document.getElementById("content").insertBefore(newWindow, this.parentElement);
+    newWindow.getElementsByClassName("add-button")[0]
+        .addEventListener("click", addElement);
 }

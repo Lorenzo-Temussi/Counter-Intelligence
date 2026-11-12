@@ -19,6 +19,8 @@
   font-style: normal;
 }
 
+/* OUTER PAGE */
+
 #title-box {
   display: flex;
   flex-direction: column;
@@ -32,36 +34,66 @@ hr {
 }
 
 h1 {
-    color: var(--colorC);
-    font-size: 4em;
-    margin: auto;
-    text-shadow: 2px 0px var(--colorD);
+  color: var(--colorC);
+  font-size: 4em;
+  margin: auto;
+  text-shadow: 2px 0px var(--colorD);
 }
 
 h2 {
-  color:var(--colorE);
+  color: var(--colorE);
   text-shadow: 1px 0px var(--colorD);
 }
 
 body {
-    background-color: var(--colorA);
+  background-color: var(--colorA);
 }
 
 #main {
   display: flex;
 }
 
+/* SIDEBAR */
+
 #sidebar {
   width: 25%;
+  display: none;
 }
 
+/* CONTENT */
+
 #content {
-  
+
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
 }
+
+
+.add-window {
+  height: 4em;
+}
+
+.add-window-button {
+
+  /* ToDo: replace elem with img */
+
+  background-color: var(--colorB);
+  color: var(--colorC);
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.add-window-button:hover {
+  background-color: var(--colorC);
+  color: var(--colorB);
+}
+
+
+
+/* CONTAINERS */
 
 .add-elem {
   display: flex;
@@ -77,10 +109,10 @@ body {
 
   border-radius: 50%;
   background-color: var(--colorC);
-  border-style:groove;
+  border-style: groove;
   border-width: 3px;
   width: 4em;
-  height: 4em;  
+  height: 4em;
 }
 
 
@@ -94,6 +126,7 @@ body {
   height: 2em;
 }
 
+
 .container {
   width: 25em;
   border: 3px solid var(--colorB);
@@ -104,7 +137,7 @@ body {
   overflow: hidden;
 }
 
-.window-name{
+.window-name {
   color: var(--colorC);
   background-color: #2b2b16;
   padding: 0.2em;
@@ -127,28 +160,6 @@ body {
   border-bottom: 1px solid var(--colorA);
 }
 
-.add-window {
-  height: 4em;
-}
-
-.add-window-button {
-
-  /* ToDo: replace elem with img */
-
-  background-color: var(--colorB);
-  color: var(--colorC);
-  border: none;
-  width: 100%;  
-  height: 100%;
-
-  
-} 
-
-.add-window-button:hover {
-  background-color: var(--colorC);
-  color: var(--colorB);
-}
-
 .elem-icon {
   width: 15%;
   height: auto;
@@ -161,4 +172,15 @@ body {
 
 .form-to-add {
   background-color: #61b600;
+}
+
+/* DIALOG */
+
+#add-link-dialog {
+  background-color: var(--colorB);
+  color: var(--colorC);
+  border: 3px solid var(--colorC);
+  border-radius: 1em;
+  padding: 1em;
+
 }

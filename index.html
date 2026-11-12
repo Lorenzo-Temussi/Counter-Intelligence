@@ -1,49 +1,71 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta lang="en">
-        <script src="Scripts/init.js"></script>
-        <script src="Scripts/addButton.js"></script>
-        <script src="Scripts/deleteButton.js"></script>
-        <link rel=stylesheet href="Styles/style.css"></link>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
-    </head>
-    <template id="template-dialog">
-        <form>
-            <label>Insert Link</label>
-            <input id="link" type="text">
-            <hr>
-            <input id="confirm" type="submit">
-            
 
-        </form>
-    </template>
-    <body>
-        <div id="title-box">
-            <h1 class="bungee-hairline-regular">Counter - Intelligence</h1>
-            <hr>
-            <h2 class="bungee-hairline-regular">Now with more Magnifica Humanitas</h2>
-        </div>
-        <div id="main">
-            <div id="sidebar">a</div>
-            <div id="content">
-                <div class="container" id="w1">
-                    <div class="window-name">Games</div>
-                    <div class="window-content">
-                        <div class="window-elements">
-                        </div>
-                        <div class="add-elem">
-                            <button class="add-button">+</button>
-                        </div>
+<head>
+    <meta lang="en">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> <!-- Icon References -->
+    <script src="Scripts/init.js"></script>
+    <script src="Scripts/addButton.js"></script>
+    <script src="Scripts/deleteButton.js"></script>
+    <link rel=stylesheet href="Styles/style.css">
+    </link>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
+
+    <title>Counter - Intelligence</title>
+</head>
+
+<!--The dialog used to add new elements--> 
+
+<dialog id="add-link-dialog" class="hidden">
+    <form id="add-link-form">
+        <label>
+            <p>Insert link*:</p>
+            <input name="url" type="url" required>
+        </label>
+
+        <label>
+            <p>Insert name:</p>
+            <input name="name" type="text">
+        </label>
+
+        <label>
+            <p>Insert pic URL:</p>
+            <input name="image" type="url">
+        </label>
+
+        <button type="submit" id="submit-add-link">Confirm</button>
+        <button type="button" id="cancel-add-link">Cancel</button>
+
+        <p id="small">Elements marked with * are mandatory</p>
+    </form>
+</dialog>
+
+<body>
+    <div id="title-box">
+        <h1 class="bungee-hairline-regular">Counter - Intelligence</h1>
+        <hr>
+        <h2 class="bungee-hairline-regular">Now with more Magnifica Humanitas</h2>
+    </div>
+    <div id="main">
+        <div id="sidebar">a</div>
+        <div id="content">
+            <div class="container" id="w1">
+                <div class="window-name">Games</div>
+                <div class="window-content">
+                    <div class="window-elements">
+                    </div>
+                    <div class="add-elem">
+                        <button class="add-button">+</button>
                     </div>
                 </div>
-                <div class="container add-window">
-                    <button class="add-window-button">+</button>
-                </div>
+            </div>
+            <div class="container add-window">
+                <button class="add-window-button">+</button>
             </div>
         </div>
-    </body>
-    
+    </div>
+</body>
+
 </html>
