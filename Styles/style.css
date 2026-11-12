@@ -24,6 +24,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 4em;
+  background-color: #2b2b16;
 }
 
 hr {
@@ -31,14 +32,27 @@ hr {
 }
 
 h1 {
-    color: rgb(138, 21, 21);
+    color: var(--colorC);
     font-size: 4em;
     margin: auto;
-    text-shadow: 2px 0px var(--colorB);
+    text-shadow: 2px 0px var(--colorD);
+}
+
+h2 {
+  color:var(--colorE);
+  text-shadow: 1px 0px var(--colorD);
 }
 
 body {
     background-color: var(--colorA);
+}
+
+#main {
+  display: flex;
+}
+
+#sidebar {
+  width: 25%;
 }
 
 #content {
