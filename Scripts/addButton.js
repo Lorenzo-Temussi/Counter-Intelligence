@@ -40,8 +40,29 @@ function addElement() {
     const newElem = document.createElement("div");
     newElem.innerHTML = newElemInner;
     
-    let temp = document.getElementById("w1").getElementsByClassName("window-elements")[0].appendChild(newElem);
+    console.log(this);
+    let temp = this.parentElement.parentElement.getElementsByClassName("window-elements")[0].appendChild(newElem);
     temp.getElementsByClassName("delete-button")[0].addEventListener("click", deleteElement);
 
+
+}
+
+function addWindow() {
+    const newWindowInner = `
+        <div class="container">
+            <div class="window-name">Games</div>
+            <div class="window-content">
+                <div class="window-elements">
+                </div>
+                <div class="add-elem">
+                    <button class="add-button">+</button>
+                </div>
+            </div>
+        </div>`
+
+    const newWindow = document.createElement("div");
+    newWindow.innerHTML = newWindowInner;
+    const temp = document.getElementById("content").insertBefore(newWindow, this.parentElement);
+    newWindow.getElementsByClassName("add-button")[0].addEventListener("click", addElement);
 
 }
