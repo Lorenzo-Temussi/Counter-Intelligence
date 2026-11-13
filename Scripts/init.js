@@ -6,9 +6,11 @@ window.addEventListener("load", function() {
 
     const addWindBtn = Array.from(this.document.getElementsByClassName("add-window-button"));
     addWindBtn.forEach(btn => btn.addEventListener("click", addWindow));
-    const sidebarToggleBtn = this.document.getElementById("sidebar-toggle-button");
-    sidebarToggleBtn.addEventListener("click", toggleSidebar);
-    })
+    
+    const sidebar = this.document.getElementById("sidebar");
+    sidebar.addEventListener("mouseover", toggleLeftSidebar);
+    sidebar.addEventListener("mouseout", toggleLeftSidebar);
+})
 
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");

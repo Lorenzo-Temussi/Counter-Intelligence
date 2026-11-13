@@ -57,12 +57,23 @@ body {
 /* SIDEBAR */
 
 #sidebar {
-  width: 25%;
-  background-color: var(--colorB);
+  
 }
 
 .hidden {
   display: none;
+}
+
+.sidebar-compact {
+  width: 10%;
+  background-color: #61b600;
+  transition: width 0.5s ease-in;
+}
+
+.sidebar-expanded {
+  width: 30%;
+  background-color: #2f5701;
+  transition: width 0.5s ease-out;
 }
 
 
