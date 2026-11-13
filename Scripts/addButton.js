@@ -8,6 +8,7 @@ const addElement = (() => {
         dialog = document.getElementById("add-link-dialog");
         form = document.getElementById("add-link-form");
         const cancelButton = document.getElementById("cancel-add-link");
+        dialog.classList.toggle("hidden");
 
         form.addEventListener("submit", handleFormSubmit);
         cancelButton.addEventListener("click", () => dialog.close());
