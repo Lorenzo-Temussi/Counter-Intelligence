@@ -10,6 +10,9 @@ window.addEventListener("load", function() {
     const sidebar = this.document.getElementById("sidebar");
     sidebar.addEventListener("mouseover", toggleLeftSidebar);
     sidebar.addEventListener("mouseout", toggleLeftSidebar);
+
+    const workspaceElem = Array.from(document.getElementsByClassName("workspace-element"));
+    workspaceElem.forEach(el => el.addEventListener("click", selectWorkspace));
 })
 
 function toggleSidebar() {

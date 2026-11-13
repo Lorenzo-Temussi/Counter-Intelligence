@@ -91,12 +91,12 @@ body {
   transition: width 0.5s ease-out, background-color 0.5s ease-out;
 }
 
-.workspace-element {
+.workspace-element, .add-workspace {
   display: flex;
   align-items: center;
   justify-content: left;
   height: 5em;
-  height: 5em;
+  max-height: 5em;
 
   border-top-left-radius: 2.5em;
   border-bottom-left-radius: 2.5em;
@@ -106,8 +106,7 @@ body {
 
   /* UNselected */
 
-  border: none;
-  background-color: var(--colorC);
+  
 
   p {
     margin-left: 1em;
@@ -127,6 +126,26 @@ body {
   background-color: var(--colorA);
   border-right: 2px solid var(--colorA);
   box-shadow: 2px 0px var(--colorA);
+}
+
+.add-workspace {
+  background-color: none;
+  border: 2px dotted var(--colorB);
+  border-right: none;
+
+}
+
+.workspace-element.background {
+  border: none;
+  background-color: var(--colorC);
+}
+
+.add-workspace button {
+  width: 4em;
+  height: 4em;
+  margin-left: 1em;
+  border-radius: 50%;
+  
 }
 
 /* CONTENT */
