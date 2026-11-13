@@ -104,9 +104,7 @@ body {
 
   overflow: hidden;
 
-  /* UNselected */
-
-  
+  /* Unselected */
 
   p {
     margin-left: 1em;
@@ -146,6 +144,43 @@ body {
   margin-left: 1em;
   border-radius: 50%;
   
+}
+
+/* fixed button suite */
+
+.button-suite-container {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 90%;
+  height: 60%;
+  
+  width: 6em;
+  justify-content: space-between;
+  div {
+    min-height: 6em;
+    min-width: 6em;
+  }
+
+  button {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--colorB);
+    background: linear-gradient(to bottom, var(--gradientA), var(--gradientB));
+  }
+}
+
+i {
+  color: var(--colorB);
+  margin: auto;
+}
+
+#operations-button {
+  i {
+    margin-right: 10%;
+  }
 }
 
 /* CONTENT */

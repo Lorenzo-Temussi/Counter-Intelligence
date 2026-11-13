@@ -3,7 +3,7 @@
 
 <head>
     <meta lang="en">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> <!-- Icon References -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!-- Gets Icons-->
     <script src="Scripts/init.js"></script>
     <script src="Scripts/addButton.js"></script>
     <script src="Scripts/deleteButton.js"></script>
@@ -54,6 +54,8 @@
     </div>
     
     <div id="main">
+
+        <!--Sidebar and such--> 
         
         <div id="sidebar" class="sidebar-compact">
             <div class="workspace-list">
@@ -75,6 +77,31 @@
                 </div>
             </div>
         </div>
+
+        <!--The fixed button suite-->
+        <div class="button-suite-container">
+            <div>
+                <button id="operations-button">
+                    <i class="fa fa-chevron-left fa-3x"></i>
+                </button>
+            </div>
+            <div>
+                <button>
+                    <i class="fa fa-database fa-3x"></i>
+                </button>
+            </div>
+            <div>
+                <button>
+                    <i class="fa fa-users fa-3x"></i>
+                </button>
+            </div>
+            <div>
+                <button>
+                    <i class="fa fa-cogs fa-3x"></i>
+                </button>
+            </div>
+        </div>
+
         <div id="content">
             <div class="container" id="w1">
                 <div class="window-name">Games</div>
