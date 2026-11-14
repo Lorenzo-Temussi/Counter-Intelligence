@@ -1,4 +1,6 @@
 window.addEventListener("load", function() {
+    initJSONManager();
+
     const addElemBtn = Array.from(this.document.getElementsByClassName("add-button"));
     addElemBtn.forEach(btn => btn.addEventListener("click", addElement));
     const delElemBtn = Array.from(this.document.getElementsByClassName("delete-button"));

@@ -91,6 +91,10 @@ body {
   transition: width 0.5s ease-out, background-color 0.5s ease-out;
 }
 
+.workspace-list {
+  margin-top: 1em;
+}
+
 .workspace-element, .add-workspace {
   display: flex;
   align-items: center;
