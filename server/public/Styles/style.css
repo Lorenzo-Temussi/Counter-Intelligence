@@ -114,16 +114,16 @@ body {
     margin-left: 1em;
     overflow: hidden;
   }
+  
+}
 
-  img {
+.account-image {
     width: 3em;
     height: 3em;
     object-fit: cover;
     margin-left: 1em;
     border-radius: 50%;
   }
-  
-}
 
 .workspace-element.selected {
   border: 1px solid black;
@@ -359,11 +359,11 @@ i {
 
 .the-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 0fr 1fr;
   grid-template-rows: 1fr;
   grid-gap: 0;
 
-  background-color: var(--colorB);
+  
   margin: auto;
   margin-top: 5em;
 
@@ -372,17 +372,41 @@ i {
   div {
     display: flex;
     color: white;
-    border: 1px solid white;
-    height: 3em;
+    border: 1px solid var(--colorA);
 
     align-items: center;
     justify-content: left;
+    padding: 1em;
+
+    height: calc(3em + 4px);
 
     
+  }
 
-    p {
-      margin-left: 1em;
+  div:nth-child(even) {
+    background-color: var(--colorB);
+  }
+
+  div:nth-child(odd) {
+      
+      padding: 0;
+      width: 3em;
+      height: 100%;
+      width: calc(5em + 4px);
+
+      img {
+        height: 5em;
+        width: 5em;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
     }
+
+  img {
+    border: 2px solid var(--colorC);  
+    margin: 0;
+    
+      
   }
 }
 
