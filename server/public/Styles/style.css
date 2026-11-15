@@ -117,6 +117,8 @@ body {
 
   img {
     width: 3em;
+    height: 3em;
+    object-fit: cover;
     margin-left: 1em;
     border-radius: 50%;
   }
@@ -344,3 +346,44 @@ i {
 }
 
 
+
+/* PAGE 404 */
+
+#code-404 {
+  font-size: 20em;
+  margin: auto;
+  color: var(--colorB);
+}
+
+/* BROWSE_NEW */
+
+.the-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 0;
+
+  background-color: var(--colorB);
+  margin: auto;
+  margin-top: 5em;
+
+  width: 40%;
+
+  div {
+    display: flex;
+    color: white;
+    border: 1px solid white;
+    height: 3em;
+
+    align-items: center;
+    justify-content: left;
+
+    
+
+    p {
+      margin-left: 1em;
+    }
+  }
+}
+
+  
