@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta lang="en">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!-- Gets Icons-->
+    <script src="Scripts/init.js"></script>
+    <script src="Scripts/addButton.js"></script>
+    <script src="Scripts/deleteButton.js"></script>
+    <script src="Scripts/leftSidebar.js"></script>
+    <script src="Scripts/JSONManager.js"></script>
+    <link rel=stylesheet href="Styles/style.css">
+    </link>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
+
+    <title>Counter - Intelligence</title>
+</head>
+
+<!--The dialog used to add new elements--> 
+
+<dialog id="add-link-dialog" class="hidden">
+    <form id="add-link-form">
+        <label>
+            <p>Insert link*:</p>
+            <input name="url" type="url" required>
+        </label>
+
+        <label>
+            <p>Insert name:</p>
+            <input name="name" type="text">
+        </label>
+
+        <label>
+            <p>Insert pic URL:</p>
+            <input name="image" type="url">
+        </label>
+        
+        <p id="small">Elements marked with * are mandatory</p>
+
+        <div id="add-link-buttons">
+            <button type="button" id="cancel-add-link">Cancel</button>
+            <button type="submit" id="submit-add-link">Confirm</button>
+        </div>
+        
+    </form>
+</dialog>
+
+<body>
+    <div id="title-box">
+        <h1 class="bungee-hairline-regular">Counter - Intelligence</h1>
+        <hr>
+        <h2 class="bungee-hairline-regular">Now with more Magnifica Humanitas</h2>
+    </div>
+    
+    <div id="main">
+
+        <!--Sidebar and such--> 
+        
+        <div id="sidebar" class="sidebar-compact">
+            <div class="workspace-list">
+
+                <div class="workspace-element selected">
+                    <img src="Pictures/birb.jpeg">
+                    <p class=>E. Holmes</p>
+                </div>
+                <div class="workspace-element background">
+                    <img src="Pictures/birb.jpeg">
+                    <p class=>E. Holmes</p>
+                </div>
+                <div class="workspace-element background">
+                    <img src="Pictures/birb.jpeg">
+                    <p class=>E. Holmes</p>
+                </div>
+                <div class="add-workspace">
+                    <button>+</button>
+                </div>
+            </div>
+        </div>
+
+        <!--The fixed button suite-->
+        <div class="button-suite-container">
+            <div>
+                <button id="operations-button">
+                    <i class="fa fa-chevron-left fa-3x"></i>
+                </button>
+            </div>
+            <div>
+                <button>
+                    <i class="fa fa-database fa-3x"></i>
+                </button>
+            </div>
+            <div>
+                <button>
+                    <i class="fa fa-users fa-3x"></i>
+                </button>
+            </div>
+            <div>
+                <button>
+                    <i class="fa fa-cogs fa-3x"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="container" id="w1">
+                <div class="window-name">Games</div>
+                <div class="window-content">
+                    <div class="window-elements">
+                    </div>
+                    <div class="add-elem">
+                        <button class="add-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container add-window">
+                <button class="add-window-button">+</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
