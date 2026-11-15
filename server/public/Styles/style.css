@@ -361,7 +361,7 @@ i {
   display: grid;
   grid-template-columns: 0fr 1fr;
   grid-template-rows: 1fr;
-  grid-gap: 0;
+  grid-row-gap: 0.2em;
 
   
   margin: auto;
@@ -372,15 +372,12 @@ i {
   div {
     display: flex;
     color: white;
-    border: 1px solid var(--colorA);
-
+    border: 2px solid var(--colorE);
     align-items: center;
     justify-content: left;
     padding: 1em;
-
-    height: calc(3em + 4px);
-
     
+    height: 3em;
   }
 
   div:nth-child(even) {
@@ -390,24 +387,22 @@ i {
   div:nth-child(odd) {
       
       padding: 0;
-      width: 3em;
-      height: 100%;
-      width: calc(5em + 4px);
+      height: 5em;
+      width: 5em;
+      border-radius: 50%;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
 
       img {
         height: 5em;
         width: 5em;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
+        margin: 0;
       }
     }
 
-  img {
-    border: 2px solid var(--colorC);  
-    margin: 0;
-    
-      
-  }
+  
 }
 
   
