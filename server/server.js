@@ -9,6 +9,14 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
+app.get('/browse-new', (req, res) => {
+    res.sendFile(__dirname + '/public/htmls/browseNew.html');
+});
+
+app.use((req, res) => {
+    res.status(404).sendFile(__dirname + '/public/htmls/404.html');
+})
+
 app.listen(port, () => {
     console.log("Listening, always...");
 });
