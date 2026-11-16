@@ -176,6 +176,14 @@ body {
     border: 2px solid var(--colorB);
     background: linear-gradient(to bottom, var(--gradientA), var(--gradientB));
   }
+
+  button:hover {
+    background: linear-gradient(to bottom, var(--gradientB), var(--gradientA));
+    i {
+      color: var(--colorC);
+    }
+    
+  }
 }
 
 i {
