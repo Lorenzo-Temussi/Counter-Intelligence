@@ -15,6 +15,9 @@ window.addEventListener("load", function() {
 
     const workspaceElem = Array.from(document.getElementsByClassName("workspace-element"));
     workspaceElem.forEach(el => el.addEventListener("click", selectWorkspace));
+
+    const addWorkspace = Array.from(document.getElementsByClassName("add-workspace"))[0].getElementsByTagName("button")[0];
+    addWorkspace.addEventListener("click", createWorkspace);
 })
 
 function toggleSidebar() {
