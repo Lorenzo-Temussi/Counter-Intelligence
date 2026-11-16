@@ -127,4 +127,12 @@ function addWindow() {
     document.getElementById("content").insertBefore(newWindow, this.parentElement);
     newWindow.getElementsByClassName("add-button")[0]
         .addEventListener("click", addElement);
+
+
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-button";
+    deleteButton.type = "button";
+    deleteButton.textContent = "x";
+    deleteButton.addEventListener("click", deleteElement);
+    newWindow.appendChild(deleteButton);
 }

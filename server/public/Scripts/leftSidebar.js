@@ -27,4 +27,11 @@ function createWorkspace() {
     newWorkspace.innerHTML = newWorkspaceInner;
     newWorkspace.addEventListener("click", selectWorkspace);
     newWorkspace.classList.add("workspace-element", "background");
+
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-button";
+    deleteButton.type = "button";
+    deleteButton.textContent = "x";
+    deleteButton.addEventListener("click", deleteElement);
+    newWorkspace.appendChild(deleteButton);
 }

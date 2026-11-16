@@ -114,6 +114,10 @@ body {
     margin-left: 1em;
     overflow: hidden;
   }
+
+  .delete-button {
+    display: none;
+  }
   
 }
 
@@ -132,16 +136,16 @@ body {
   box-shadow: 2px 0px var(--colorA);
 }
 
+.workspace-element.background {
+  border: none;
+  background-color: var(--colorC);
+}
+
 .add-workspace {
   background-color: none;
   border: 2px dotted var(--colorB);
   border-right: none;
 
-}
-
-.workspace-element.background {
-  border: none;
-  background-color: var(--colorC);
 }
 
 .add-workspace button {
@@ -150,6 +154,12 @@ body {
   margin-left: 1em;
   border-radius: 50%;
   
+}
+
+.workspace-element:hover {
+  button {
+    display: block;
+  }
 }
 
 /* fixed button suite */
