@@ -17,13 +17,14 @@ function selectWorkspace() {
 function createWorkspace() {
     console.log("PING!! createWS chiamata!");
     const newWorkspaceInner = `
-        <div class="workspace-element background">
                     <img src="Pictures/liz-holmes.jpg" class="account-image">
                     <p class=>E. Holmes</p>
-                    </div>`;
+                    `;
     const newWorkspace = document.createElement("div");                
     const workspaceList = Array.from(document.getElementsByClassName("workspace-list"))[0];
     
     workspaceList.appendChild(newWorkspace);
     newWorkspace.innerHTML = newWorkspaceInner;
+    newWorkspace.addEventListener("click", selectWorkspace);
+    newWorkspace.classList.add("workspace-element", "background");
 }
