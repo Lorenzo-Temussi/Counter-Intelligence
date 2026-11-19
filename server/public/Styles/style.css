@@ -409,6 +409,7 @@ i {
       }
 
       .browse-description {
+        padding-left: 1.5em;
         background-color: var(--colorB);
         height: 5em;
         width: 100%;
@@ -418,10 +419,14 @@ i {
         
         overflow: hidden;
       }
-
     }
-
-  
 }
 
+.browse-title {
+  color:#61b600;
+}
+
+.browse-name {
+  color:#e49c9c;
+}
   
