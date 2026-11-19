@@ -13,9 +13,13 @@ app.get('/browse-new', (req, res) => {
     res.sendFile(__dirname + '/public/htmls/browseNew.html');
 });
 
+app.get('/send-JSON', (req,res) => {
+    res.json({message: "Here's little JSON!"});
+})
+
 app.use((req, res) => {
     res.status(404).sendFile(__dirname + '/public/htmls/404.html');
-})
+});
 
 app.listen(port, () => {
     console.log("Listening, always...");
