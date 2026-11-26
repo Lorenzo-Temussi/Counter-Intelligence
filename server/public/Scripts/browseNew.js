@@ -9,7 +9,7 @@ window.addEventListener("load", async function() {
                             <img src="Pictures/liz-holmes.jpg" class="account-image">   
                         </div>
                         <div class="browse-description">
-                            <p><span class="browse-name">E. Holmes</span> - <span class="browse-title">Theranos</span></p>
+                            <p><span class="browse-name">E. Holmes</span> :/ /: <span class="browse-title">Theranos</span></p>
                         </div>
                     `;
     const newBrowseElement = document.createElement("div");                

@@ -1,6 +1,21 @@
+require('dotenv').config();
 const express = require('express');
+const mysql = require('mysql2/promise');
 const app = express();
 const port = 3000;
+
+// pool init
+const pool = mysql.createPool({
+    host: process.env.DB_HOST,
+    port: Number(process.env.DB_PORT || 3306),
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
+});
+
 
 // This line tells Express to serve static files from a folder named 'public'
 app.use(express.static('public'));
@@ -17,18 +32,19 @@ app.get('/send-JSON', (req,res) => {
     res.json({message: "Here's little JSON!"});
 });
 
-app.get("/get-new-browse/", (req, res) => {
-    const value = req.params.value;
-    res.json({"titles": [
-        "title_of_first_publicWS",
-        "title_of_second_publicWS",
-        "title_of_third_publicWS"
-    ],
-    "names": [
-        "name_of_first_publicWS",
-        "name_of_second_publicWS",
-        "name_of_third_publicWS"
-    ]});
+app.get("/get-new-browse/", async (req, res) => {
+    try {
+        const [rows] = await pool.query(
+            "SELECT title, owner_name FROM public_workspaces"
+        );
+        res.json({
+            titles: rows.map(row => row.title),
+            names: rows.map(row => row.owner_name)
+        });
+    } catch (err) {
+        console.error("Error in query execution:", err);
+        res.status(500).json({ success: false, message: "Database query failed" });
+    }
 });
 
 app.use((req, res) => {
