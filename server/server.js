@@ -28,21 +28,43 @@ app.get('/browse-new', (req, res) => {
     res.sendFile(__dirname + '/public/htmls/browseNew.html');
 });
 
+app.get('/user-space', (req, res) => {
+    res.sendFile(__dirname + '/public/htmls/user-space.html');
+});
+
 app.get('/send-JSON', (req,res) => {
     res.json({message: "Here's little JSON!"});
 });
 
 app.get("/get-new-browse/", async (req, res) => {
+    const currentPage = Number(req.query.currentPage ?? 0);
+    const numOfElementsPerPage = Number(req.query.numOfElementsPerPage ?? 10);
+    const offset = currentPage * numOfElementsPerPage;
+
+    if (
+        !Number.isSafeInteger(currentPage) || currentPage < 0 ||
+        !Number.isSafeInteger(numOfElementsPerPage) ||
+        numOfElementsPerPage < 1 || numOfElementsPerPage > 100 ||
+        !Number.isSafeInteger(offset)
+    ) {
+        return res.status(400).json({ message: "Invalid pagination parameters" });
+    }
+
     try {
-        const [rows] = await pool.query(
+        const [rows] = await pool.execute(
             `SELECT us.username, ws.title 
             FROM ci_workspaces AS ws
             JOIN ci_users AS us
-            ON us.id = ws.user_id`
+            ON us.id = ws.user_id
+            ORDER BY ws.user_id ASC, ws.id ASC
+            LIMIT ? OFFSET ?
+            `,
+            [numOfElementsPerPage, offset]
         );
+
         res.json({
             titles: rows.map(row => row.title),
-            names: rows.map(row => row.username)
+            names: rows.map(row => row.username),
         });
     } catch (err) {
         console.error("Error in query execution:", err);
