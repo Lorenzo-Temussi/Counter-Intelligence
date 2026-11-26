@@ -35,11 +35,14 @@ app.get('/send-JSON', (req,res) => {
 app.get("/get-new-browse/", async (req, res) => {
     try {
         const [rows] = await pool.query(
-            "SELECT title, owner_name FROM public_workspaces"
+            `SELECT us.username, ws.title 
+            FROM ci_workspaces AS ws
+            JOIN ci_users AS us
+            ON us.id = ws.user_id`
         );
         res.json({
             titles: rows.map(row => row.title),
-            names: rows.map(row => row.owner_name)
+            names: rows.map(row => row.username)
         });
     } catch (err) {
         console.error("Error in query execution:", err);
